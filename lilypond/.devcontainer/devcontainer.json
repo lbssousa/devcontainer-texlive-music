@@ -1,6 +1,6 @@
 {
     "name": "devcontainer-texlive-music",
-    "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
     "features": {
       "ghcr.io/lbssousa/devcontainer-features-texlive-music/lilypond:1": {
         "version": "2.24.1"
