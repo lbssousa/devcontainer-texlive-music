@@ -1,81 +1,84 @@
 {
-    "name": "devcontainer-texlive-music",
-    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
-    "features": {
-      "ghcr.io/lbssousa/devcontainer-features-texlive-music/lilypond:1.3.1": {
-        "version": "2.24.3"
+  "name": "devcontainer-texlive-music",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/lbssousa/devcontainer-features-texlive-music/lilypond:1": {
+      "version": "2.24.3"
+    },
+    "ghcr.io/lbssousa/devcontainer-features-texlive-music/texlive:1": {
+      "version": "2023",
+      "scheme": "minimal",
+      "extra-packages": "babel-latin babel-portuges booktabs chktex currfile ebgaramond enumitem epstopdf-pkg etoolbox environ epstopdf fancyhdr filehook fontspec geometry graphics gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luaotfload luaoptions luatexbase lyluatex memoir metalogo metapost metre microtype minibox musixtex musixtex-fonts m-tx paracol pdflscape pdfpages pdftexcmds pmx relsize texcount titlesec tools xcolor xpatch xkeyval xstring"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.bracketPairColorization.enabled": true,
+        "editor.fontLigatures": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.renderWhitespace": "boundary",
+        "editor.smoothScrolling": true,
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.wordWrap": "bounded",
+        "files.trimTrailingWhitespace": true,
+        "latex-workshop.linting.chktex.enabled": true,
+        "latex-workshop.linting.run": "onType",
+        "latex-workshop.intellisense.package.enabled": true,
+        "latex-workshop.kpsewhich.enabled": true,
+        "latex-workshop.latex.autoBuild.run": "never",
+        "latex-workshop.latex.autoClean.run": "onFailed",
+        "latex-workshop.latex.clean.subfolder.enabled": true,
+        "latex-workshop.latex.external.build.args": [
+          "--shell-escape",
+          "--synctex=1",
+          "--interaction=nonstopmode",
+          "--file-line-error",
+          "--halt-on-error"
+        ],
+        "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "latexmk (lualatex)",
+            "tools": [
+              "lualatexmk"
+            ]
+          }
+        ],
+        "latex-workshop.latex.tools": [
+          {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+              "-lualatex",
+              "--shell-escape",
+              "--synctex=1",
+              "--interaction=nonstopmode",
+              "--file-line-error",
+              "--halt-on-error",
+              "%DOC%"
+            ]
+          }
+        ],
+        "latex-workshop.synctex.afterBuild.enabled": true,
+        "latex-workshop.texdoc.args": [
+          "--view",
+          "--shell-escape"
+        ],
+        "latex-workshop.view.pdf.viewer": "tab",
+        "terminal.integrated.defaultProfile.linux": "zsh"
       },
-      "ghcr.io/lbssousa/devcontainer-features-texlive-music/texlive:1": {
-        "version": "2023",
-        "scheme": "minimal",
-        "extra-packages": "babel-latin babel-portuges booktabs chktex currfile ebgaramond enumitem epstopdf-pkg etoolbox environ epstopdf fancyhdr filehook fontspec geometry graphics gregoriotex grfext hyperref hyphen-english hyphen-latin hyphen-portuguese infwarerr kvoptions latex-bin latexindent latexmk luacolor luamplib luaotfload luaoptions luatexbase lyluatex memoir metalogo metapost metre microtype minibox musixtex musixtex-fonts m-tx paracol pdflscape pdfpages pdftexcmds pmx relsize texcount titlesec tools xcolor xpatch xkeyval xstring"
-      }
-    },
-    "customizations": {
-      "vscode": {
-        "settings": {
-          "editor.bracketPairColorization.enabled": true,
-          "editor.fontLigatures": true,
-          "editor.formatOnPaste": true,
-          "editor.formatOnSave": true,
-          "editor.insertSpaces": true,
-          "editor.renderWhitespace": "boundary",
-          "editor.smoothScrolling": true,
-          "editor.suggestSelection": "recentlyUsedByPrefix",
-          "editor.wordWrap": "bounded",
-          "files.trimTrailingWhitespace": true,
-          "latex-workshop.linting.chktex.enabled": true,
-          "latex-workshop.linting.run": "onType",
-          "latex-workshop.intellisense.package.enabled": true,
-          "latex-workshop.kpsewhich.enabled": true,
-          "latex-workshop.latex.autoBuild.run": "never",
-          "latex-workshop.latex.autoClean.run": "onFailed",
-          "latex-workshop.latex.clean.subfolder.enabled": true,
-          "latex-workshop.latex.external.build.args": [
-            "--shell-escape",
-            "--synctex=1",
-            "--interaction=nonstopmode",
-            "--file-line-error",
-            "--halt-on-error"
-          ],
-          "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
-          "latex-workshop.latex.recipes": [
-            {
-              "name": "latexmk (lualatex)",
-              "tools": [
-                "lualatexmk"
-              ]
-            }
-          ],
-          "latex-workshop.latex.tools": [
-            {
-              "name": "lualatexmk",
-              "command": "latexmk",
-              "args": [
-                "-lualatex",
-                "--shell-escape",
-                "--synctex=1",
-                "--interaction=nonstopmode",
-                "--file-line-error",
-                "--halt-on-error",
-                "%DOC%"
-              ]
-            }
-          ],
-          "latex-workshop.synctex.afterBuild.enabled": true,
-          "latex-workshop.texdoc.args": [
-            "--view",
-            "--shell-escape"
-          ],
-          "latex-workshop.view.pdf.viewer": "tab",
-          "terminal.integrated.defaultProfile.linux": "zsh"
-        },
-        "extensions": [
-          "james-yu.latex-workshop",
-          "tecosaur.latex-utilities",
-          "lhl2617.vslilypond"
-        ]
-      }
-    },
-    "remoteUser": "vscode"
-  }
+      "extensions": [
+        "james-yu.latex-workshop",
+        "lhl2617.lilypond-formatter",
+        "lhl2617.lilypond-pdf-preview",
+        "lhl2617.lilypond-snippets",
+        "lhl2617.VSLilyPond",
+        "tecosaur.latex-utilities"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
